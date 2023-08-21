@@ -226,6 +226,7 @@ public class MBPVariants {
             weapons.add(new Weapon("mini-boi-erekir-corvus-weapon"){{
                 shootSound = Sounds.laserblast;
                 chargeSound = Sounds.lasercharge;
+                heatColor = Pal.heal;
                 minWarmup = 0.9f;
                 soundPitchMin = 1f;
                 top = false;
