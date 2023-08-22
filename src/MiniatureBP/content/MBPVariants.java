@@ -214,10 +214,10 @@ public class MBPVariants {
                     moves.add(new PartMove(PartProgress.charge.inv(), -1f, -1f, -8f));
                     moves.add(new PartMove(PartProgress.recoil.inv(), 1.4f, 1.4f, 10f));
 
-                    heatColor = Pal.heal;
+                    heatColor = Color.valueOf("98ffa980");
                 }},
                 new RegionPart("-glow"){{
-                    color = Pal.heal;
+                    color = Color.valueOf("98ffa980");
                     blending = Blending.additive;
                     outline = mirror = false;
                 }});
@@ -226,7 +226,7 @@ public class MBPVariants {
             weapons.add(new Weapon("mini-boi-erekir-corvus-weapon"){{
                 shootSound = Sounds.laserblast;
                 chargeSound = Sounds.lasercharge;
-                heatColor = Pal.heal;
+                heatColor = Color.valueOf("98ffa980");
                 minWarmup = 0.9f;
                 soundPitchMin = 1f;
                 top = false;
