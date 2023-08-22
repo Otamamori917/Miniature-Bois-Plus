@@ -260,14 +260,14 @@ public class MBPVariants {
                         powerDamageScl = 1.5f;
                         hitEffect = Fx.none;
                         damage = 1;
-                        hitColor = lightColor = Pal.heal;
+                        hitColor = lightColor = Color.valueOf("98ffa980");
                         lightRadius = 7f;
                         clipSize = 25f;
                         shootEffect = Fx.hitEmpSpark;
                         smokeEffect = Fx.shootBigSmoke2;
                         lifetime = 20f;
                         sprite = "circle-bullet";
-                        backColor = Pal.heal;
+                        backColor = Color.valueOf("98ffa980");
                         frontColor = Color.white;
                         width = height = 8f;
                         shrinkY = 0f;
@@ -280,7 +280,7 @@ public class MBPVariants {
                     lightningDelay = 0.6f;
                     lightningAngleRand = 0f;
                     largeHit = true;
-                    lightColor = lightningColor = Pal.heal;
+                    lightColor = lightningColor = Color.valueOf("98ffa980");
 
                     chargeEffect = Fx.greenLaserCharge;
 
@@ -290,7 +290,7 @@ public class MBPVariants {
                     sideAngle = 15f;
                     sideWidth = 0f;
                     sideLength = 0f;
-                    colors = new Color[]{Pal.heal.cpy().a(0.4f), Pal.heal, Color.white};
+                    colors = new Color[]{Color.valueOf("98ffa980").cpy().a(0.4f), Color.valueOf("98ffa980"), Color.white};
                 }};
             }});
         }};
