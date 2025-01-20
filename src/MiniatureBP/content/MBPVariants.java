@@ -19,6 +19,7 @@ import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.ammo.ItemAmmoType;
 import mindustry.type.ammo.PowerAmmoType;
+import mindustry.type.unit.ErekirUnitType;
 
 public class MBPVariants {
     public static UnitType
@@ -163,7 +164,7 @@ public class MBPVariants {
                 }};
             }});
         }};
-        erekirCorvus = new UnitType("erekir-corvus"){{
+        erekirCorvus = new ErekirUnitType("erekir-corvus"){{
             localizedName = "Erekir Corvus";
             hitSize = 29f;
             health = 16000f;
