@@ -17,8 +17,6 @@ import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import mindustry.type.ammo.ItemAmmoType;
-import mindustry.type.ammo.PowerAmmoType;
 import mindustry.type.unit.ErekirUnitType;
 
 public class MBPVariants {
@@ -46,7 +44,6 @@ public class MBPVariants {
             legForwardScl = 0.58f;
             hovering = true;
             shadowElevation = 0.2f;
-            ammoType = new PowerAmmoType(4000);
             groundLayer = Layer.legUnit;
             constructor = LegsUnit::create;
 
@@ -103,8 +100,8 @@ public class MBPVariants {
             );
 
             weapons.add(new Weapon("corvus-weapon"){{
-                shootSound = Sounds.laserblast;
-                chargeSound = Sounds.lasercharge;
+                shootSound = Sounds.shootCorvus;
+                chargeSound = Sounds.chargeCorvus;
                 soundPitchMin = 1f;
                 top = false;
                 mirror = false;
@@ -190,7 +187,6 @@ public class MBPVariants {
             legSplashDamage = 32;
             legSplashRange = 30;
             drownTimeMultiplier = 2f;
-            ammoType = new PowerAmmoType(6000);
             groundLayer = Layer.legUnit;
             constructor = LegsUnit::create;
 
@@ -225,8 +221,8 @@ public class MBPVariants {
             }
 
             weapons.add(new Weapon("mini-boi-erekir-corvus-weapon"){{
-                shootSound = Sounds.laserblast;
-                chargeSound = Sounds.lasercharge;
+                shootSound = Sounds.shootCorvus;
+                chargeSound = Sounds.chargeCorvus;
                 heatColor = Color.valueOf("98ffa980");
                 minWarmup = 0.9f;
                 soundPitchMin = 1f;

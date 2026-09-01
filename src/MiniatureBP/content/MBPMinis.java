@@ -31,8 +31,6 @@ import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import mindustry.type.ammo.ItemAmmoType;
-import mindustry.type.ammo.PowerAmmoType;
 import mindustry.type.unit.ErekirUnitType;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.type.unit.NeoplasmUnitType;
@@ -64,7 +62,6 @@ public class MBPMinis {
             mechFrontSway = 1.9f / 3f;
             mechSideSway = 0.6f / 3f;
             constructor = MechUnit::create;
-            ammoType = new ItemAmmoType(Items.thorium);
 
             weapons.add(
                     new Weapon("mini-boi-mini-reign-weapon"){{
@@ -76,7 +73,7 @@ public class MBPMinis {
                         recoil = 5f / 3f;
                         shake = 2f / 3f;
                         ejectEffect = Fx.casing1;
-                        shootSound = Sounds.bang;
+                        shootSound = Sounds.shootReign;
 
                         bullet = new BasicBulletType(13f / 3f, 40){{
                             pierce = true;
@@ -130,7 +127,6 @@ public class MBPMinis {
             shadowElevation = 0.2f / 3f;
 
             constructor = LegsUnit::create;
-            ammoType = new PowerAmmoType(4000 / 3f);
             groundLayer = Layer.legUnit;
 
             speed = 0.5f;
@@ -138,8 +134,8 @@ public class MBPMinis {
             drawShields = false;
 
             weapons.add(new Weapon("mini-boi-mini-corvus-weapon"){{
-                shootSound = Sounds.laserblast;
-                chargeSound = Sounds.lasercharge;
+                shootSound = Sounds.shootCorvus;
+                chargeSound = Sounds.chargeCorvus;
                 soundPitchMin = 0.8f;
                 top = false;
                 mirror = false;
@@ -206,7 +202,6 @@ public class MBPMinis {
             legLengthScl = 0.93f;
             rippleScale = 3;
             legSpeed = 0.2f;
-            ammoType = new ItemAmmoType(Items.graphite, 4);
 
             legSplashDamage = 1;
             legSplashRange = 6;
@@ -225,7 +220,7 @@ public class MBPMinis {
                         shake = 4f / 3f;
                         rotateSpeed = 2f;
                         ejectEffect = Fx.casing1;
-                        shootSound = Sounds.shootBig;
+                        shootSound = Sounds.shootToxopidShotgun;
                         rotate = true;
                         shadow = 12f / 3f;
                         recoil = 1.0f;
@@ -257,7 +252,7 @@ public class MBPMinis {
                 recoil = 10f / 3f;
                 rotateSpeed = 1f;
                 ejectEffect = Fx.casing2;
-                shootSound = Sounds.artillery;
+                shootSound = Sounds.shootArtillerySap;
                 rotate = true;
                 shadow = 30f / 3f;
 
@@ -276,7 +271,7 @@ public class MBPMinis {
                     frontColor = lightningColor = Pal.sapBullet;
                     lightning = 2;
                     lightningLength = 20 / 3;
-                    smokeEffect = Fx.shootBigSmoke2;
+                    smokeEffect = Fx.shootSmallSmoke;
                     hitShake = 10f / 3f;
                     lightRadius = 40f / 3f;
                     lightColor = Pal.sap;
@@ -300,7 +295,7 @@ public class MBPMinis {
                         frontColor = lightningColor = Pal.sapBullet;
                         lightning = 2;
                         lightningLength = 5 / 3;
-                        smokeEffect = Fx.shootBigSmoke2;
+                        smokeEffect = Fx.shootSmallSmoke;
                         hitShake = 5f / 3f;
                         lightRadius = 30f / 3f;
                         lightColor = Pal.sap;
@@ -343,7 +338,7 @@ public class MBPMinis {
                     smokeEffect = MBPFx.shootMircoSmoke;
                     ammoMultiplier = 2.0F;
                 }};
-                shootSound = Sounds.pew;
+                shootSound = Sounds.shoot;
             }});
         }};
 
@@ -362,9 +357,8 @@ public class MBPMinis {
                 armor = 4;
                 constructor = UnitEntity::create;
                 targetFlags = new BlockFlag[]{BlockFlag.reactor, BlockFlag.battery, BlockFlag.core, null};
-                ammoType = new ItemAmmoType(Items.thorium);
                 final BulletType fragBullet = new FlakBulletType(4.0F/3, 15.0F/3){{
-                    shootEffect = Fx.shootBig;
+                    shootEffect = Fx.shootSmall;
                     hitEffect = MBPFx.miniFlakExplosion;
                     explodeRange = 10.0F;
                     width = 8.0F/3;
@@ -385,7 +379,7 @@ public class MBPMinis {
                         rotateSpeed = 2.0F;
                         reload = 45.0F;
                         recoil = 4.0F/3;
-                        shootSound = Sounds.laser;
+                        shootSound = Sounds.shootLaser;
                         shadow = 20.0F/3;
                         rotate = true;
                         bullet = new LaserBulletType(){{
@@ -404,7 +398,7 @@ public class MBPMinis {
                         y = 27.0F/3;
                         rotateSpeed = 2.0F;
                         reload = 9.0F;
-                        shootSound = Sounds.shoot;
+                        shootSound = Sounds.shootEclipse;
                         shadow = 7.0F/3;
                         rotate = true;
                         recoil = 0.5F/3;
@@ -418,7 +412,7 @@ public class MBPMinis {
                         ejectEffect = Fx.casing1;
                         rotateSpeed = 7.0F;
                         shake = 1.0F/3;
-                        shootSound = Sounds.shoot;
+                        shootSound = Sounds.shootEclipse;
                         rotate = true;
                         shadow = 12.0F/3;
                         shootY = 7.25F/3;
@@ -460,7 +454,6 @@ public class MBPMinis {
             accel = 0.19F;
             rotateSpeed = 0.9F;
             faceTarget = false;
-            ammoType = new PowerAmmoType(4000.0F/3);
             constructor = UnitWaterMove::create;
             float spawnTime = 900.0F/3;
             abilities.add(new UnitSpawnAbility(miniFlare, spawnTime, 19.25F/3, -31.75F/3), new UnitSpawnAbility(miniFlare, spawnTime, -19.25F/3, -31.75F/3));
@@ -480,7 +473,7 @@ public class MBPMinis {
                 shake = 6.0F/3;
                 recoil = 10.5F/3;
                 shadow = 50.0F/3;
-                shootSound = Sounds.railgun;
+                shootSound = Sounds.shootOmura;
                 ejectEffect = Fx.none;
                 bullet = new RailBulletType() {{
                     shootEffect = MBPFx.miniRailShoot;
@@ -506,7 +499,6 @@ public class MBPMinis {
             accel = 0.2F;
             rotateSpeed = 1.1F;
             faceTarget = false;
-            ammoType = new PowerAmmoType(4500.0F/3);
             trailLength = 70/3;
             waveTrailX = 23.0F/3;
             waveTrailY = -32.0F/3;
@@ -535,7 +527,8 @@ public class MBPMinis {
                             rotateSpeed = 3.5F;
                             reload = 170.0F;
                             recoil = 1.0F/3;
-                            shootSound = Sounds.beam;
+                            shootSound = Sounds.beamPlasmaSmall;
+                            initialShootSound = Sounds.shootBeamPlasmaSmall;
                             continuous = true;
                             cooldownTime = reload;
                             immunities.add(StatusEffects.burning);
@@ -562,6 +555,14 @@ public class MBPMinis {
                     }
                 }
 
+                abilities.add(new SuppressionFieldAbility() {{
+                    orbRadius = 5.0F/3;
+                    particleSize = 3.0F/3;
+                    y = -10.0F/3;
+                    particles = 10;
+                    color = particleColor = effectColor = Pal.heal;
+                }});
+
                 weapons.add(new Weapon("mini-boi-mini-emp-cannon-mount") {{
                     rotate = true;
                     x = 17.5F/3;
@@ -573,7 +574,7 @@ public class MBPMinis {
                     shootY = 7.0F/3;
                     recoil = 4.0F/3;
                     cooldownTime = reload - 10.0F;
-                    shootSound = Sounds.laser;
+                    shootSound = Sounds.shootNavanax;
                     bullet = new EmpBulletType() {{
                         float rad = 100.0F/3;
                         scaleLife = true;
@@ -605,7 +606,7 @@ public class MBPMinis {
                         hitShake = 4.0F/3;
                         trailRotation = true;
                         status = StatusEffects.electrified;
-                        hitSound = Sounds.plasmaboom;
+                        this.hitSound = Sounds.explosionNavanax;
                         trailEffect = new Effect(16.0F/3, (e) -> {
                             Draw.color(Pal.heal);
                             for(int s : Mathf.signs) {
@@ -654,7 +655,7 @@ public class MBPMinis {
                 treadRects = new Rect[]{new Rect(27.0F/3 - xo, 152.0F/3 - yo, 56.0F/3, 73.0F/3), new Rect(24.0F/3 - xo, 42.0F/3 - yo, 29.0F/3, 17.0F/3), new Rect(59.0F/3 - xo, 9.0F/3 - yo, 39.0F/3, 19.0F/3)};
                 weapons.add(new Weapon("mini-boi-mini-conquer-weapon") {
                     {
-                        shootSound = Sounds.largeCannon;
+                        shootSound = Sounds.shootConquer;
                         layerOffset = 0.1F;
                         reload = 100.0F;
                         shootY = 32.5F/3;
@@ -850,7 +851,6 @@ public class MBPMinis {
                 legBaseOffset = 19.0F/2.75f;
                 legStraightLength = 0.9F;
                 legMaxLength = 1.2F;
-                ammoType = new PowerAmmoType(2000.0F/3);
                 constructor = LegsUnit::create;
                 legSplashDamage = 32.0F/3;
                 legSplashRange = 32.0F/3;
@@ -862,7 +862,7 @@ public class MBPMinis {
                 alwaysShootWhenMoving = true;
                 weapons.add(new Weapon("mini-boi-mini-collaris-weapon") {
                     {
-                        shootSound = Sounds.pulseBlast;
+                        shootSound = Sounds.shootCollaris;
                         mirror = true;
                         rotationLimit = 30.0F;
                         rotateSpeed = 0.4F;
@@ -918,7 +918,7 @@ public class MBPMinis {
                                 trailLength = 19/3;
                                 trailChance = -1.0F;
                                 despawnEffect = Fx.none;
-                                despawnSound = Sounds.dullExplosion;
+                                this.despawnSound = Sounds.explosionDull;
                                 hitEffect = despawnEffect = new ExplosionEffect() {
                                     {
                                         lifetime = 34.0F/3;
@@ -1032,7 +1032,7 @@ public class MBPMinis {
 
                 weapons.add(new Weapon("mini-boi-mini-disrupt-weapon") {
                     {
-                        shootSound = Sounds.missileLarge;
+                        shootSound = Sounds.shootMissileSmall;
                         x = 19.5F/2.75f;
                         y = -2.5F/2.75f;
                         mirror = true;

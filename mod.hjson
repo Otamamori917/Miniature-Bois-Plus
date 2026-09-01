@@ -17,7 +17,7 @@ description: "Add Mini T5s and Art Variants."
 version: 1.0
 
 #the minimum game build required to run this mod
-minGameVersion: 145
+minGameVersion: 159
 
 #this is a java mod
 java: true
